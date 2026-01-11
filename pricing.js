@@ -1,56 +1,54 @@
-// pricing.js
+// Pricing Table with Monthly/Yearly Toggle
 document.addEventListener('DOMContentLoaded', () => {
-    const billingToggle = document.getElementById('billingToggle');
-    const pricingTable = document.getElementById('pricingTable');
+  const pricingSection = document.getElementById('pricing');
+  pricingSection.innerHTML = `
+    <h2>Pricing Plans</h2>
+    <div class="pricing-toggle">
+      <button id="monthlyBtn">Monthly</button>
+      <button id="yearlyBtn">Yearly</button>
+    </div>
+    <div id="plans"></div>
+  `;
 
-    const plans = [
-        {
-            name: 'Free Test',
-            monthly: 0,
-            yearly: 0,
-            features: ['3 sends', 'Basic voice commands', 'Limited storage', '1 user'],
-            minUsers: 1
-        },
-        {
-            name: 'Basic',
-            monthly: 29,
-            yearly: 29 * 12 * 0.8, // 20% discount
-            features: ['Unlimited sends', 'Full voice control', '5GB storage', 'Up to 3 users', 'Email integration'],
-            minUsers: 3
-        },
-        {
-            name: 'Professional',
-            monthly: 59,
-            yearly: 59 * 12 * 0.8,
-            features: ['Unlimited everything', 'Advanced security', '50GB storage', 'Up to 10 users', 'Priority support'],
-            minUsers: 3
-        },
-        {
-            name: 'Enterprise',
-            monthly: 'Custom',
-            yearly: 'Custom',
-            features: ['Custom features', 'Unlimited storage', 'Dedicated support', 'Unlimited users', 'API access'],
-            minUsers: 3
-        }
-    ];
+  const plansData = {
+    monthly: [
+      {name:'Basic', price:29, features:['3 Users','3 Sends/month','Basic Support']},
+      {name:'Professional', price:59, features:['5 Users','Unlimited Sends','Priority Support']},
+      {name:'Enterprise', price:'Custom', features:['Unlimited Users','Unlimited Sends','Dedicated Support']}
+    ],
+    yearly: [
+      {name:'Basic', price:29*12*0.9, features:['3 Users','3 Sends/month','Basic Support']},
+      {name:'Professional', price:59*12*0.9, features:['5 Users','Unlimited Sends','Priority Support']},
+      {name:'Enterprise', price:'Custom', features:['Unlimited Users','Unlimited Sends','Dedicated Support']}
+    ]
+  };
 
-    function renderPricing(yearly = false) {
-        pricingTable.innerHTML = '';
-        plans.forEach(plan => {
-            const card = document.createElement('div');
-            card.className = 'pricing-card';
-            card.innerHTML = `
-                <h3>${plan.name}</h3>
-                <div class="price">$${yearly ? plan.yearly.toFixed(0) : plan.monthly}${yearly ? '/year' : '/month'}</div>
-                <ul>
-                    ${plan.features.map(f => `<li>${f}</li>`).join('')}
-                </ul>
-                <button>Choose Plan</button>
-            `;
-            pricingTable.appendChild(card);
-        });
+  const plansDiv = document.getElementById('plans');
+
+  function simulatePayment(planName){
+    const payment = confirm(`Simulate payment for ${planName}? Click OK for success.`);
+    if(payment){
+      alert(`${planName} plan activated! Unlimited sends unlocked.`);
+      localStorage.setItem(`paidUser_${simulatedIP}`, planName);
+      location.reload();
+    } else {
+      alert('Payment failed. Try again.');
     }
+  }
 
-    billingToggle.onchange = () => renderPricing(billingToggle.checked);
-    renderPricing(); // Initial render monthly
+  function renderPlans(type='monthly'){
+    plansDiv.innerHTML = '';
+    plansData[type].forEach(p=>{
+      const div = document.createElement('div');
+      div.className='plan';
+      div.innerHTML = `<h3>${p.name}</h3><p>${p.price === 'Custom' ? 'Custom Pricing' : '$'+p.price}</p>
+      <ul>${p.features.map(f=>'<li>'+f+'</li>').join('')}</ul>
+      <button onclick="${p.name==='Basic' ? "alert('Basic plan is free!')" : `simulatePayment('${p.name}')`}">Sign Up</button>`;
+      plansDiv.appendChild(div);
+    });
+  }
+
+  renderPlans();
+  document.getElementById('monthlyBtn').onclick = ()=>renderPlans('monthly');
+  document.getElementById('yearlyBtn').onclick = ()=>renderPlans('yearly');
 });
