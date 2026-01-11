@@ -1,62 +1,43 @@
-<!--
-  Sendbox - Modern File Collaboration Prototype
-  Licensed under Apache License 2.0
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sendbox - Modern File Collaboration</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sendbox - Modern File Collaboration</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Top Navigation with icons -->
-<header>
-  <div class="logo">Sendbox</div>
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-    <button id="loginBtn">Login</button>
-    <button id="signupBtn">Sign Up</button>
-  </nav>
-</header>
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
 
-<main>
-  <!-- Video Background Hero -->
-  <section class="hero-video">
-    <video autoplay muted loop id="bgVideo">
-      <source src="video/files-sharing.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay">
-      <h1>Collaborate Files Effortlessly</h1>
-      <p>Sendbox is a modern Dropbox-style file collaboration platform with voice commands.</p>
-      <a href="demo.html"><button id="demoBtn">Start Free Demo</button></a>
-    </div>
+  <!-- Top Nav Bar -->
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="demo.html">Free Demo</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Center CTA -->
+  <div class="hero">
+    <h1>Sendbox - Enterprise File Collaboration</h1>
+    <p>Upload, share, and collaborate with your team seamlessly.</p>
+    <button onclick="window.location.href='demo.html'">Try Free Demo</button>
+  </div>
+
+  <!-- Pricing Preview -->
+  <section id="pricing-preview">
+    <h2>Pricing Plans</h2>
+    <div id="pricing-table"></div>
   </section>
 
-  <section class="features" id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>Drag & Drop File Upload</li>
-      <li>Voice Commands: Upload, Send, Create</li>
-      <li>Collaborate with Contacts</li>
-      <li>Advanced Security & Encryption</li>
-      <li>Pricing Plans for Every Team</li>
-    </ul>
-  </section>
-
-  <section id="pricing"></section>
-</main>
-
-<footer id="contact">
-  <p>Contact us: support@sendbox.com</p>
-  <p>&copy; 2026 Sendbox</p>
-</footer>
-
-<script src="pricing.js"></script>
-<script src="app.js"></script>
+  <script src="pricing.js"></script>
 </body>
 </html>
