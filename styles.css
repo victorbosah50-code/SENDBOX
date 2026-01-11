@@ -1,222 +1,130 @@
-/* styles.css */
+/*
+  Sendbox - Modern File Collaboration Prototype
+  Licensed under Apache License 2.0
+*/
+
+/* Global */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f9fc;
+  color: #333;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #0a74da;
+  color: white;
+}
+header .logo { font-weight: bold; font-size: 1.5rem; }
+header nav a, header nav button {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0070f3;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-}
-
-.auth-buttons button {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#loginBtn {
-    background-color: transparent;
-    color: #0070f3;
-    border: 1px solid #0070f3;
-}
-
-#signupBtn, #signupHeroBtn {
-    background-color: #0070f3;
-    color: white;
-}
-
+/* Hero */
 .hero {
-    background-color: #0070f3;
-    color: white;
-    text-align: center;
-    padding: 5rem 2rem;
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #0a74da, #33c3f0);
+  color: white;
 }
-
-.hero-content h1 {
-    font-size: 3rem;
+.hero button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: white;
+  color: #0a74da;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
+.hero button:hover { background: #f0f0f0; }
 
-.hero-content p {
-    font-size: 1.5rem;
+/* Features */
+.features {
+  padding: 3rem 2rem;
+  text-align: center;
 }
+.features ul { list-style: none; padding: 0; }
+.features li { margin: 1rem 0; font-size: 1.2rem; }
 
-#demoBtn {
-    background-color: white;
-    color: #0070f3;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 4px;
-    margin-right: 1rem;
-    cursor: pointer;
-}
-
-.section {
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-.pricing-section {
-    background-color: #fff;
-}
-
-.toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.toggle input {
-    cursor: pointer;
-}
-
-.pricing-table {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.pricing-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.pricing-card h3 {
-    margin-top: 0;
-}
-
-.pricing-card .price {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.pricing-card button {
-    width: 100%;
-    padding: 1rem;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-form input, form select {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-form button {
-    width: 100%;
-    padding: 1rem;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
+/* Dashboard */
 .dashboard {
-    max-width: 800px;
+  padding: 2rem;
+  background: #fff;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
 }
-
-.voice-controls {
-    margin-bottom: 1rem;
+.file-actions { text-align: center; }
+.file-actions button {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: #0a74da;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
+#fileList { margin-top: 1rem; }
+#fileList div { margin: 0.5rem 0; display: flex; justify-content: space-between; }
 
-#startVoice {
-    padding: 0.5rem 1rem;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    cursor: pointer;
+/* Pricing */
+#pricing { padding: 3rem; background: #f0f0f0; text-align: center; }
+.pricing-toggle button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
-
-.file-list ul, .contacts ul {
-    list-style: none;
-    padding: 0;
+.plan {
+  display: inline-block;
+  width: 250px;
+  margin: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
 }
+.plan h3 { margin-top: 0; }
+.plan button { margin-top: 1rem; padding: 0.5rem 1rem; border:none; background:#0a74da; color:white; border-radius:0.5rem; cursor:pointer; }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+/* Footer */
+footer { text-align: center; padding: 2rem; background: #f0f0f0; }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left:0; top:0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  width: 90%; max-width: 400px;
+  border-radius: 1rem;
+  position: relative;
+}
+.closeBtn {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
