@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sendbox™ | Secure File Collaboration</title>
-<link rel="stylesheet" href="styles.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sendbox™ – Secure File Collaboration</title>
+<link rel="stylesheet" href="styles.css">
 <script defer src="app.js"></script>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <div class="nav-logo">Sendbox™</div>
-  <nav class="nav-links">
+  <div class="logo">Sendbox™</div>
+  <nav>
     <a href="#product">Product</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </nav>
-  <div class="nav-auth">
-    <a href="signup.html" class="btn-outline">Sign in</a>
-    <a href="signup.html" class="btn-primary">Sign up</a>
+  <div class="auth">
+    <a href="signup.html" class="btn ghost">Sign in</a>
+    <a href="signup.html" class="btn primary">Sign up</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-working-with-documents-9006/1080p.mp4" type="video/mp4">
-  </video>
+  <div class="hero-media">
+    <video autoplay muted loop>
+      <source src="https://cdn.coverr.co/videos/coverr-working-with-documents-9006/1080p.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-content">
     <h1>Enterprise File Collaboration, Reimagined</h1>
     <p>Voice-first. Secure. Built for modern teams.</p>
-    <div class="hero-buttons">
-      <a href="demo.html" class="btn-primary">Free Live Demo</a>
-      <a href="#pricing" class="btn-outline">View Pricing</a>
+    <div class="hero-actions">
+      <a href="demo.html" class="btn primary">Free Live Demo</a>
+      <a href="#pricing" class="btn ghost">View Pricing</a>
     </div>
   </div>
 </section>
@@ -43,28 +44,27 @@
 <!-- PRODUCT -->
 <section id="product" class="section">
   <h2>Product</h2>
-  <p>
-    Sendbox™ is a modern collaboration platform designed to replace slow,
-    click-heavy file sharing with secure, voice-enabled workflows.
-    Built for teams, agencies, and enterprises.
+  <p class="text">
+    Sendbox™ is a modern, enterprise-ready file collaboration platform designed
+    to eliminate friction, reduce clicks, and enable secure sharing using voice
+    and automation.
   </p>
 
-  <div class="image-showcase">
-    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="File collaboration"/>
-  </div>
+  <img class="showcase"
+    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
+    alt="File collaboration">
 </section>
 
 <!-- FEATURES -->
 <section id="features" class="section dark">
   <h2>Features</h2>
-
-  <div class="feature-grid">
-    <div class="feature-card">🎙 Voice-controlled file actions</div>
-    <div class="feature-card">🔐 Enterprise-grade security</div>
-    <div class="feature-card">📁 Drag & drop folders</div>
-    <div class="feature-card">👥 Multi-user collaboration</div>
-    <div class="feature-card">📧 Email-based sharing</div>
-    <div class="feature-card">⚡ Fast, modern UI</div>
+  <div class="grid">
+    <div class="card">🎙 Voice-controlled file actions</div>
+    <div class="card">🔐 Enterprise-grade security</div>
+    <div class="card">📁 Drag & drop folders</div>
+    <div class="card">👥 Multi-user collaboration</div>
+    <div class="card">📧 Email-based sharing</div>
+    <div class="card">⚡ Fast, modern UI</div>
   </div>
 </section>
 
@@ -72,34 +72,34 @@
 <section id="pricing" class="section">
   <h2>Pricing</h2>
 
-  <div class="pricing-grid">
+  <div class="grid pricing">
 
-    <div class="plan">
+    <div class="card">
       <h3>Free Test</h3>
       <p class="price">$0</p>
       <p>3 file sends</p>
-      <button onclick="choosePlan('free')">Select Plan</button>
+      <button onclick="choosePlan('free')" class="btn primary">Select Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="card">
       <h3>Basic</h3>
       <p class="price">$29 / month</p>
       <p>Unlimited sends<br>Up to 3 users</p>
-      <button onclick="choosePlan('basic')">Select Plan</button>
+      <button onclick="choosePlan('basic')" class="btn primary">Select Plan</button>
     </div>
 
-    <div class="plan highlight">
+    <div class="card highlight">
       <h3>Professional</h3>
       <p class="price">$59 / month</p>
       <p>Advanced security<br>Up to 10 users</p>
-      <button onclick="choosePlan('pro')">Select Plan</button>
+      <button onclick="choosePlan('pro')" class="btn primary">Select Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="card">
       <h3>Enterprise</h3>
       <p class="price">Custom</p>
       <p>Unlimited users<br>Dedicated support</p>
-      <button onclick="choosePlan('enterprise')">Contact Sales</button>
+      <button onclick="choosePlan('enterprise')" class="btn ghost">Contact Sales</button>
     </div>
 
   </div>
@@ -108,15 +108,15 @@
 <!-- CONTACT -->
 <section id="contact" class="section dark">
   <h2>Contact</h2>
-  <p>
-    <strong>Victor Bosa</strong><br/>
-    Founder, Sendbox™<br/>
+  <p class="text">
+    <strong>Victor Bosa</strong><br>
+    Founder, Sendbox™<br>
     📧 victorbosa50@gmail.com
   </p>
 </section>
 
 <footer class="footer">
-  © 2026 Sendbox™. All rights reserved.
+  © 2026 Sendbox™
 </footer>
 
 </body>
