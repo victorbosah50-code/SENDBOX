@@ -1,43 +1,47 @@
-<!--
-  Sendbox Free Demo Collaboration Interface
-  Licensed under Apache License 2.0
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sendbox Free Demo</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sendbox Free Demo</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <div class="logo">Sendbox Demo</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#features">Features</a>
-    <a href="pricing.html">Pricing</a>
-  </nav>
-</header>
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Upload</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-  <section class="collab-container">
-    <h1>Send Files & Collaborate</h1>
-    <div class="collab-form">
-      <input type="text" id="senderName" placeholder="Your Name">
-      <input type="email" id="senderEmail" placeholder="Your Email">
-      <input type="text" id="recipientName" placeholder="Recipient Name">
-      <input type="email" id="recipientEmail" placeholder="Recipient Email">
-      <textarea id="message" placeholder="Your Message / Notes"></textarea>
-      <input type="file" id="fileUpload" multiple>
-      <button id="voiceBtn">Use Voice Command</button>
-      <button id="sendBtn">Send Files</button>
+  <div class="demo-container">
+    <h1>Sendbox Free Demo</h1>
+    <p>Upload files, folders, and send using voice or manual input.</p>
+
+    <!-- File Upload -->
+    <div class="upload-section">
+      <input type="file" id="file-input" multiple webkitdirectory directory>
+      <button id="upload-btn">Upload</button>
+      <button id="voice-btn">Use Voice Command</button>
     </div>
 
-    <div id="sentFiles"></div>
-  </section>
-</main>
+    <!-- Grid -->
+    <div id="file-grid" class="file-grid"></div>
 
-<script src="demo.js"></script>
+    <!-- Send Form -->
+    <div class="send-form">
+      <input type="text" id="sender-name" placeholder="Your Name">
+      <input type="email" id="sender-email" placeholder="Your Email">
+      <input type="email" id="receiver-email" placeholder="Recipient Email">
+      <textarea id="message" placeholder="Message"></textarea>
+      <button id="send-btn">Send File(s)</button>
+    </div>
+  </div>
+
+  <script src="demo.js"></script>
 </body>
 </html>
