@@ -1,65 +1,39 @@
-/*
-  Sendbox Free Demo - Collaboration
-  Licensed under Apache License 2.0
-*/
+const fileInput = document.getElementById('file-input');
+const uploadBtn = document.getElementById('upload-btn');
+const fileGrid = document.getElementById('file-grid');
+const sendBtn = document.getElementById('send-btn');
+const voiceBtn = document.getElementById('voice-btn');
 
-const sendBtn = document.getElementById('sendBtn');
-const fileUpload = document.getElementById('fileUpload');
-const sentFiles = document.getElementById('sentFiles');
-const voiceBtn = document.getElementById('voiceBtn');
+let filesUploaded = [];
 
-// Free Demo IP check (3 sends max)
-const simulatedIP = 'user-ip-' + btoa(navigator.userAgent);
-const freeDemoKey = `freeDemo_${simulatedIP}`;
-let sendsLeft = parseInt(localStorage.getItem(`demoSends_${simulatedIP}`)) || 3;
-
-function sendFiles() {
-  if(sendsLeft <= 0) return alert('Free demo limit reached!');
-
-  const senderName = document.getElementById('senderName').value;
-  const senderEmail = document.getElementById('senderEmail').value;
-  const recipientName = document.getElementById('recipientName').value;
-  const recipientEmail = document.getElementById('recipientEmail').value;
-  const message = document.getElementById('message').value;
-
-  if(!senderName || !senderEmail || !recipientName || !recipientEmail) {
-    return alert('Please fill all sender and recipient fields!');
-  }
-
-  const files = Array.from(fileUpload.files);
-  if(files.length === 0) return alert('Please select files to send!');
-
-  files.forEach(file => {
+uploadBtn.addEventListener('click', () => {
+  const files = fileInput.files;
+  for (let f of files) {
+    filesUploaded.push(f);
     const div = document.createElement('div');
-    div.className = 'sent-file';
-    div.innerHTML = `
-      <strong>From:</strong> ${senderName} (${senderEmail})<br>
-      <strong>To:</strong> ${recipientName} (${recipientEmail})<br>
-      <strong>File:</strong> ${file.name}<br>
-      <strong>Message:</strong> ${message}
-    `;
-    sentFiles.prepend(div);
-    sendsLeft--;
-  });
+    div.textContent = f.name;
+    div.className = 'file-item';
+    fileGrid.appendChild(div);
+  }
+});
 
-  localStorage.setItem(`demoSends_${simulatedIP}`, sendsLeft);
-  alert(`Files sent! Sends left: ${sendsLeft}`);
-  fileUpload.value = '';
-}
-
-// Voice commands
-voiceBtn.onclick = () => {
-  if(!('webkitSpeechRecognition' in window)) return alert('Voice commands not supported!');
-  const recognition = new webkitSpeechRecognition();
-  recognition.continuous = false;
+// Voice Command Simulation
+voiceBtn.addEventListener('click', () => {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
   recognition.lang = 'en-US';
   recognition.start();
   recognition.onresult = (event) => {
     const command = event.results[0][0].transcript.toLowerCase();
-    if(command.includes('upload')) fileUpload.click();
-    else if(command.includes('send')) sendFiles();
-    else alert('Command not recognized');
+    if (command.includes('upload')) alert('Voice Upload Triggered!');
   };
-};
+});
 
-sendBtn.onclick = sendFiles;
+// Send Files Simulation
+sendBtn.addEventListener('click', () => {
+  const sender = document.getElementById('sender-name').value;
+  const fromEmail = document.getElementById('sender-email').value;
+  const toEmail = document.getElementById('receiver-email').value;
+  const message = document.getElementById('message').value;
+  if (!sender || !fromEmail || !toEmail) return alert('Please fill all fields.');
+  alert(`Sent ${filesUploaded.length} file(s) from ${sender} (${fromEmail}) to ${toEmail}`);
+});
