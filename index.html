@@ -1,99 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Sendbox™ | Secure Collaboration</title>
-<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sendbox™ | Secure File Collaboration</title>
+<link rel="stylesheet" href="styles.css"/>
 <script defer src="app.js"></script>
 </head>
 
 <body>
 
-<header class="top-nav">
-  <div class="logo">Sendbox™</div>
-  <nav>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-logo">Sendbox™</div>
+  <nav class="nav-links">
     <a href="#product">Product</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
-    <button class="btn" onclick="openAuth()">Sign In</button>
   </nav>
+  <div class="nav-auth">
+    <a href="signup.html" class="btn-outline">Sign in</a>
+    <a href="signup.html" class="btn-primary">Sign up</a>
+  </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-sharing-files-6826/1080p.mp4" type="video/mp4">
+    <source src="https://cdn.coverr.co/videos/coverr-working-with-documents-9006/1080p.mp4" type="video/mp4">
   </video>
-  <div class="hero-text">
-    <h1>Enterprise File Collaboration — Reimagined</h1>
-    <p>Voice-first. Secure. Faster than Dropbox.</p>
-    <button class="btn-primary" onclick="location.href='demo.html'">Free Live Demo</button>
+  <div class="hero-content">
+    <h1>Enterprise File Collaboration, Reimagined</h1>
+    <p>Voice-first. Secure. Built for modern teams.</p>
+    <div class="hero-buttons">
+      <a href="demo.html" class="btn-primary">Free Live Demo</a>
+      <a href="#pricing" class="btn-outline">View Pricing</a>
+    </div>
   </div>
 </section>
 
-<section id="product">
-<h2>Product</h2>
-<p>
-Sendbox™ is a next-generation secure collaboration platform designed for
-enterprise teams who want speed, voice control, and security.
-</p>
+<!-- PRODUCT -->
+<section id="product" class="section">
+  <h2>Product</h2>
+  <p>
+    Sendbox™ is a modern collaboration platform designed to replace slow,
+    click-heavy file sharing with secure, voice-enabled workflows.
+    Built for teams, agencies, and enterprises.
+  </p>
+
+  <div class="image-showcase">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="File collaboration"/>
+  </div>
 </section>
 
-<section id="features">
-<h2>Features</h2>
-<ul>
-<li>🔐 Enterprise-grade encryption</li>
-<li>🎙 Voice-controlled file management</li>
-<li>📁 Drag-and-drop folders</li>
-<li>👥 Real-time collaboration</li>
-<li>📧 Email + contact integrations</li>
-</ul>
+<!-- FEATURES -->
+<section id="features" class="section dark">
+  <h2>Features</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card">🎙 Voice-controlled file actions</div>
+    <div class="feature-card">🔐 Enterprise-grade security</div>
+    <div class="feature-card">📁 Drag & drop folders</div>
+    <div class="feature-card">👥 Multi-user collaboration</div>
+    <div class="feature-card">📧 Email-based sharing</div>
+    <div class="feature-card">⚡ Fast, modern UI</div>
+  </div>
 </section>
 
-<section id="pricing">
-<h2>Pricing</h2>
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <h2>Pricing</h2>
 
-<div class="pricing-grid">
+  <div class="pricing-grid">
 
-<div class="plan">
-<h3>Free Test</h3>
-<p>$0</p>
-<p>3 file sends</p>
-<button onclick="selectPlan('free')">Select Plan</button>
-</div>
+    <div class="plan">
+      <h3>Free Test</h3>
+      <p class="price">$0</p>
+      <p>3 file sends</p>
+      <button onclick="choosePlan('free')">Select Plan</button>
+    </div>
 
-<div class="plan">
-<h3>Basic</h3>
-<p>$29 / month</p>
-<p>Unlimited sends<br>3 users</p>
-<button onclick="selectPlan('basic')">Select Plan</button>
-</div>
+    <div class="plan">
+      <h3>Basic</h3>
+      <p class="price">$29 / month</p>
+      <p>Unlimited sends<br>Up to 3 users</p>
+      <button onclick="choosePlan('basic')">Select Plan</button>
+    </div>
 
-<div class="plan">
-<h3>Professional</h3>
-<p>$59 / month</p>
-<p>Advanced security<br>10 users</p>
-<button onclick="selectPlan('pro')">Select Plan</button>
-</div>
+    <div class="plan highlight">
+      <h3>Professional</h3>
+      <p class="price">$59 / month</p>
+      <p>Advanced security<br>Up to 10 users</p>
+      <button onclick="choosePlan('pro')">Select Plan</button>
+    </div>
 
-<div class="plan">
-<h3>Enterprise</h3>
-<p>Custom</p>
-<p>Unlimited users<br>Dedicated support</p>
-<button onclick="selectPlan('enterprise')">Contact Sales</button>
-</div>
+    <div class="plan">
+      <h3>Enterprise</h3>
+      <p class="price">Custom</p>
+      <p>Unlimited users<br>Dedicated support</p>
+      <button onclick="choosePlan('enterprise')">Contact Sales</button>
+    </div>
 
-</div>
+  </div>
 </section>
 
-<section id="contact">
-<h2>Contact</h2>
-<p>
-Victor G  
-<br>Founder, Sendbox™  
-<br>Email: victor@sendbox.io
-</p>
+<!-- CONTACT -->
+<section id="contact" class="section dark">
+  <h2>Contact</h2>
+  <p>
+    <strong>Victor Bosa</strong><br/>
+    Founder, Sendbox™<br/>
+    📧 victorbosa50@gmail.com
+  </p>
 </section>
+
+<footer class="footer">
+  © 2026 Sendbox™. All rights reserved.
+</footer>
 
 </body>
 </html>
