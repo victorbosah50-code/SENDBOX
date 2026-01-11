@@ -1,40 +1,31 @@
-// Firebase (replace with your real config)
-const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const storage = firebase.storage();
-
-function selectPlan(plan) {
-  localStorage.setItem("plan", plan);
-  if(plan === "free") {
-    location.href = "demo.html";
+function choosePlan(plan) {
+  localStorage.setItem("sendboxPlan", plan);
+  if (plan === "enterprise") {
+    window.location.href = "#contact";
   } else {
-    // Stripe Checkout redirect (test mode)
-    window.location.href = "https://buy.stripe.com/test_XXXXXXXX";
+    window.location.href = "signup.html";
   }
 }
 
-function uploadFiles(files) {
-  [...files].forEach(file => {
-    const ref = storage.ref('files/' + file.name);
-    ref.put(file).then(() => {
-      const div = document.createElement('div');
-      div.textContent = file.name;
-      document.getElementById('fileGrid').appendChild(div);
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("selectedPlan");
+  if (el) {
+    const plan = localStorage.getItem("sendboxPlan");
+    el.textContent = "Selected Plan: " + (plan || "Free");
+  }
+});
+
+function completeSignup() {
+  const plan = localStorage.getItem("sendboxPlan");
+  if (plan === "free") {
+    window.location.href = "demo.html";
+  } else {
+    alert("Redirecting to secure payment (Stripe test mode)");
+  }
 }
 
 function startVoice() {
   const rec = new webkitSpeechRecognition();
-  rec.onresult = e => {
-    alert("Voice Command: " + e.results[0][0].transcript);
-  };
+  rec.onresult = e => alert("Voice command: " + e.results[0][0].transcript);
   rec.start();
 }
