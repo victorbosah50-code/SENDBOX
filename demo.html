@@ -1,45 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sendbox Free Demo</title>
+<title>Sendbox™ Demo</title>
 <link rel="stylesheet" href="styles.css">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script defer src="app.js"></script>
 </head>
-<body>
-<header>
-<nav>
-<ul>
-<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="#upload"><i class="fas fa-upload"></i> Upload</a></li>
-<li><a href="index.html#contact"><i class="fas fa-address-book"></i> Contacts</a></li>
-<li><a href="index.html#pricing-preview"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
-</ul>
-</nav>
+
+<body class="dashboard">
+
+<header class="dash-header">
+<h2>Sendbox™ Collaboration</h2>
+<button onclick="startVoice()">🎙 Voice Command</button>
 </header>
 
-<div class="demo-container">
-<h1>Sendbox Free Demo</h1>
-<p>Upload files, folders, and send using voice or manual input.</p>
-
-<div class="upload-section" id="upload">
-<input type="file" id="file-input" multiple webkitdirectory directory>
-<button id="upload-btn">Upload</button>
-<button id="voice-btn">Use Voice Command</button>
+<div class="upload-area" ondrop="dropFile(event)" ondragover="allowDrop(event)">
+<p>Drag & Drop Files or Folders</p>
+<input type="file" multiple webkitdirectory onchange="uploadFiles(this.files)">
 </div>
 
-<div id="file-grid" class="file-grid"></div>
+<div id="fileGrid" class="file-grid"></div>
 
-<div class="send-form">
-<input type="text" id="sender-name" placeholder="Your Name">
-<input type="email" id="sender-email" placeholder="Your Email">
-<input type="email" id="receiver-email" placeholder="Recipient Email">
-<textarea id="message" placeholder="Message"></textarea>
-<button id="send-btn">Send File(s)</button>
-</div>
-</div>
-
-<script src="scripts.js"></script>
 </body>
 </html>
