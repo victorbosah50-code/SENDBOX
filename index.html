@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sendbox - Modern File Collaboration</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -15,11 +16,11 @@
 <header>
 <nav>
   <ul>
-    <li><a href="index.html#products"><i class="fas fa-box"></i> Products</a></li>
-    <li><a href="index.html#features"><i class="fas fa-cogs"></i> Features</a></li>
+    <li><a href="#products"><i class="fas fa-box"></i> Products</a></li>
+    <li><a href="#features"><i class="fas fa-cogs"></i> Features</a></li>
     <li><a href="demo.html"><i class="fas fa-play"></i> Free Demo</a></li>
-    <li><a href="index.html#pricing-preview"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
-    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    <li><a href="#pricing-preview"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
   </ul>
 </nav>
 </header>
@@ -30,15 +31,58 @@
 <button onclick="window.location.href='demo.html'">Try Free Demo</button>
 </div>
 
+<!-- Products Section -->
+<section id="products">
+<h2>Our Products</h2>
+<p><strong>Sendbox Core:</strong> Secure file sharing, drag-and-drop, folder support, real-time collaboration. <br>
+<strong>Sendbox Voice:</strong> Control your workflow entirely with voice commands — upload, share, and send without typing. <br>
+<strong>Enterprise Dashboard:</strong> Advanced analytics, file activity tracking, team management, and collaboration insights.</p>
+</section>
+
+<!-- Features Section -->
+<section id="features">
+<h2>Features</h2>
+<ul>
+<li>Drag-and-drop file & folder upload</li>
+<li>Voice commands for upload & send</li>
+<li>Grid-view file management</li>
+<li>Free demo with IP-based restriction</li>
+<li>Modern, Dropbox-style UI</li>
+<li>Secure, fast, and scalable for enterprises</li>
+</ul>
+</section>
+
+<!-- Pricing Section -->
 <section id="pricing-preview">
 <h2>Pricing Plans</h2>
 <div id="pricing-table"></div>
 </section>
 
-<!-- Placeholder sections for anchors -->
-<section id="products"></section>
-<section id="features"></section>
-<section id="contact"></section>
+<!-- Contact Section -->
+<section id="contact">
+<h2>Contact Me</h2>
+<p><strong>Name:</strong> Victor G</p>
+<p><strong>Email:</strong> victor@example.com</p>
+<p><strong>Message:</strong> Use the form below to reach out for demos, partnerships, or enterprise inquiries.</p>
+</section>
+
+<!-- Signup Modal -->
+<div id="signup-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <h2 id="modal-plan-name">Sign Up</h2>
+    <input type="text" id="signup-name" placeholder="Your Name">
+    <input type="email" id="signup-email" placeholder="Your Email">
+    <input type="text" id="signup-company" placeholder="Company (Optional)">
+    <div id="payment-section">
+      <p id="payment-text">Payment will be required for this plan.</p>
+      <input type="text" id="card-number" placeholder="Card Number">
+      <input type="text" id="card-expiry" placeholder="MM/YY">
+      <input type="text" id="card-cvc" placeholder="CVC">
+    </div>
+    <button id="signup-submit">Sign Up</button>
+  </div>
+</div>
 
 <script src="scripts.js"></script>
 </body>
