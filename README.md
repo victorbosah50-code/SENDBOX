@@ -1,5 +1,7 @@
 # Sendbox - Modern File Collaboration Prototype
 
+Licensed under the Apache License 2.0
+
 Sendbox is a **Dropbox-style file collaboration tool prototype** with:
 
 - Voice commands for file upload, send, and create
