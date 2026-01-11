@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Top Navigation with icons -->
 <header>
   <div class="logo">Sendbox</div>
   <nav>
+    <a href="#products">Products</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
@@ -23,10 +25,16 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h1>Collaborate Files Effortlessly</h1>
-    <p>Sendbox is a modern Dropbox-style file collaboration platform with voice commands.</p>
-    <button id="demoBtn">Start Free Demo</button>
+  <!-- Video Background Hero -->
+  <section class="hero-video">
+    <video autoplay muted loop id="bgVideo">
+      <source src="video/files-sharing.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+      <h1>Collaborate Files Effortlessly</h1>
+      <p>Sendbox is a modern Dropbox-style file collaboration platform with voice commands.</p>
+      <a href="demo.html"><button id="demoBtn">Start Free Demo</button></a>
+    </div>
   </section>
 
   <section class="features" id="features">
@@ -40,31 +48,13 @@
     </ul>
   </section>
 
-  <section class="dashboard" id="dashboard">
-    <h2>Interactive Dashboard (Demo)</h2>
-    <div class="file-actions">
-      <button id="voiceUpload">🎤 Upload via Voice</button>
-      <input type="file" id="fileInput" multiple hidden>
-      <div id="fileList"></div>
-    </div>
-  </section>
-
   <section id="pricing"></section>
-
 </main>
 
 <footer id="contact">
   <p>Contact us: support@sendbox.com</p>
   <p>&copy; 2026 Sendbox</p>
 </footer>
-
-<!-- Login / Signup Modal -->
-<div class="modal" id="authModal">
-  <div class="modal-content">
-    <span class="closeBtn">&times;</span>
-    <div id="authForms"></div>
-  </div>
-</div>
 
 <script src="pricing.js"></script>
 <script src="app.js"></script>
