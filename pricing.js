@@ -1,5 +1,9 @@
-// Pricing Table with Monthly/Yearly Toggle
-document.addEventListener('DOMContentLoaded', () => {
+/*
+  Sendbox - Modern File Collaboration Prototype
+  Licensed under Apache License 2.0
+*/
+
+document.addEventListener('DOMContentLoaded',()=>{
   const pricingSection = document.getElementById('pricing');
   pricingSection.innerHTML = `
     <h2>Pricing Plans</h2>
@@ -10,45 +14,43 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="plans"></div>
   `;
 
-  const plansData = {
-    monthly: [
+  const plansData={
+    monthly:[
       {name:'Basic', price:29, features:['3 Users','3 Sends/month','Basic Support']},
       {name:'Professional', price:59, features:['5 Users','Unlimited Sends','Priority Support']},
       {name:'Enterprise', price:'Custom', features:['Unlimited Users','Unlimited Sends','Dedicated Support']}
     ],
-    yearly: [
+    yearly:[
       {name:'Basic', price:29*12*0.9, features:['3 Users','3 Sends/month','Basic Support']},
       {name:'Professional', price:59*12*0.9, features:['5 Users','Unlimited Sends','Priority Support']},
       {name:'Enterprise', price:'Custom', features:['Unlimited Users','Unlimited Sends','Dedicated Support']}
     ]
   };
 
-  const plansDiv = document.getElementById('plans');
+  const plansDiv=document.getElementById('plans');
 
   function simulatePayment(planName){
-    const payment = confirm(`Simulate payment for ${planName}? Click OK for success.`);
+    const payment = confirm(`Simulate payment for ${planName}? OK=Success`);
     if(payment){
-      alert(`${planName} plan activated! Unlimited sends unlocked.`);
-      localStorage.setItem(`paidUser_${simulatedIP}`, planName);
+      alert(`${planName} activated! Unlimited sends unlocked.`);
+      localStorage.setItem(`paidUser_${simulatedIP}`,planName);
       location.reload();
-    } else {
-      alert('Payment failed. Try again.');
-    }
+    } else alert('Payment failed.');
   }
 
   function renderPlans(type='monthly'){
-    plansDiv.innerHTML = '';
+    plansDiv.innerHTML='';
     plansData[type].forEach(p=>{
-      const div = document.createElement('div');
+      const div=document.createElement('div');
       div.className='plan';
-      div.innerHTML = `<h3>${p.name}</h3><p>${p.price === 'Custom' ? 'Custom Pricing' : '$'+p.price}</p>
+      div.innerHTML=`<h3>${p.name}</h3><p>${p.price==='Custom'?'Custom Pricing':'$'+p.price}</p>
       <ul>${p.features.map(f=>'<li>'+f+'</li>').join('')}</ul>
-      <button onclick="${p.name==='Basic' ? "alert('Basic plan is free!')" : `simulatePayment('${p.name}')`}">Sign Up</button>`;
+      <button onclick="${p.name==='Basic'?"alert('Basic plan is free!')":`simulatePayment('${p.name}')`}">Sign Up</button>`;
       plansDiv.appendChild(div);
     });
   }
 
   renderPlans();
-  document.getElementById('monthlyBtn').onclick = ()=>renderPlans('monthly');
-  document.getElementById('yearlyBtn').onclick = ()=>renderPlans('yearly');
+  document.getElementById('monthlyBtn').onclick=()=>renderPlans('monthly');
+  document.getElementById('yearlyBtn').onclick=()=>renderPlans('yearly');
 });
